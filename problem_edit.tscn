@@ -1,0 +1,28 @@
+[gd_scene format=3 uid="uid://dke8gl5nen8n3"]
+
+[node name="ProblemEdit" type="CanvasLayer"]
+
+[node name="ColorRect" type="ColorRect" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.831003, 0.517504, 0.328022, 1)
+metadata/_edit_use_anchors_ = true
+
+[node name="CodeEdit" type="CodeEdit" parent="."]
+anchors_preset = -1
+anchor_right = 0.790799
+anchor_bottom = 0.875
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="RichTextLabel" type="RichTextLabel" parent="."]
+anchors_preset = -1
+anchor_left = 0.798611
+anchor_right = 1.0
+anchor_bottom = 0.865741
+grow_horizontal = 0
+text = "Chatbot Placeholder"
+metadata/_edit_use_anchors_ = true
