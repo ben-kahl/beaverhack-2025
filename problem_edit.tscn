@@ -26,3 +26,30 @@ anchor_bottom = 0.865741
 grow_horizontal = 0
 text = "Chatbot Placeholder"
 metadata/_edit_use_anchors_ = true
+
+[node name="Save" type="Button" parent="."]
+anchors_preset = -1
+anchor_left = 0.0494792
+anchor_top = 0.905864
+anchor_right = 0.133681
+anchor_bottom = 0.967593
+text = "Save"
+metadata/_edit_use_anchors_ = true
+
+[node name="Load" type="Button" parent="."]
+anchors_preset = -1
+anchor_left = 0.360243
+anchor_top = 0.905864
+anchor_right = 0.444444
+anchor_bottom = 0.967593
+text = "Save"
+metadata/_edit_use_anchors_ = true
+
+[node name="Judge" type="Button" parent="."]
+anchors_preset = -1
+anchor_left = 0.669271
+anchor_top = 0.901235
+anchor_right = 0.753472
+anchor_bottom = 0.962963
+text = "Judge"
+metadata/_edit_use_anchors_ = true
