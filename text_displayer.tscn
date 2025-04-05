@@ -1,0 +1,39 @@
+[gd_scene load_steps=2 format=3 uid="uid://co3pyy8grhh2j"]
+
+[ext_resource type="Script" uid="uid://dw4xed1waq1nv" path="res://text_displayer.gd" id="1_rxt1q"]
+
+[node name="CanvasLayer" type="CanvasLayer"]
+script = ExtResource("1_rxt1q")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.913725, 0.396078, 0.231373, 1)
+metadata/_edit_use_anchors_ = true
+
+[node name="Rows" type="VBoxContainer" parent="."]
+anchors_preset = -1
+anchor_left = 0.00173611
+anchor_top = -0.00308642
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+metadata/_edit_use_anchors_ = true
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Rows"]
+layout_mode = 2
+size_flags_vertical = 4
+text = "Placeholder text "
+
+[node name="Panel_Container" type="HBoxContainer" parent="Rows"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="Rows/Panel_Container"]
+layout_mode = 2
+text = ">Press 'Enter' to continue
+
+"
