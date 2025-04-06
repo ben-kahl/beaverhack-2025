@@ -5,8 +5,10 @@ extends CanvasLayer
 @onready var isAccepted = null
 @onready var isCorrect = false
 const GameDataLoader = preload("res://game_data_loader.gd")
+var secret_key = ""
 var answer_data = null
 var instruction_data = null
+var last_token: String = ""
 
 func _ready() -> void:
 	answer_data = GameDataLoader.new("res://data/answers.json")
@@ -14,6 +16,16 @@ func _ready() -> void:
 	instruction_data = GameDataLoader.new("res://data/instructions.json")
 	instruction_data.processInstructions()
 	$InstructionBG/Instructions.text = instruction_data.text_data[instruction_data.current_pos]
+	loadKey()
+
+func loadKey():
+	var path = "res://keys/judge0"
+	if FileAccess.file_exists(path):
+		var file = FileAccess.open(path, FileAccess.READ)
+		secret_key = file.get_as_text().strip_edges()
+		print("API key loaded")
+	else:
+		print("Error loading API key")
 
 func _on_save_pressed() -> void:
 	source_code = $CodeEdit.text
@@ -32,9 +44,12 @@ func _on_judge_pressed() -> void:
 		"language_id": 71,
 	}
 	var json_string = JSON.stringify(json)
-	# for now use localhost, consider switching to cloud hosting
-	var url = "http://localhost:2358/submissions?base64_encoded=false&wait=true"
-	var headers = ["Content-Type: application/json"]
+	var url = "https://judge0-ce.p.rapidapi.com/submissions?base64_encoded=false&wait=false&fields=*"
+	var headers = [
+		"Content-Type: application/json",
+		"x-rapidapi-host: judge0-ce.p.rapidapi.com",
+		"x-rapidapi-key: %s" % secret_key
+		]
 	
 	var error = http.request(url, headers, HTTPClient.METHOD_POST, json_string)
 	
@@ -44,23 +59,47 @@ func _on_judge_pressed() -> void:
 
 func _on_http_request_request_completed(result: int, response_code: int, headers: PackedStringArray, body: PackedByteArray) -> void:
 	var response = JSON.parse_string(body.get_string_from_utf8())
-	print("Response: ", response)
-	if response and response.has("status"):
+
+	# This is a submission polling response
+	if response.has("status"):
 		var status = response["status"]
-		if status.has("description"):
-			var description = status["description"]
-			if description == "Accepted":
-				isAccepted = true
-				$JudgeStatus.text = "Code Accepted!"
-				var stdout = response["stdout"]
-				checkAnswer(stdout)
-			else:
-				isAccepted = false
-				$JudgeStatus.text = "Code not Accepted. Try Again!"
+		var id = status["id"]
+		var description = status["description"]
+		print("Submission status: ", description)
+
+		if id == 3:
+			# Accepted
+			var stdout = response.get("stdout", "")
+			var stderr = response.get("stderr", "")
+			var compile_output = response.get("compile_output", "")
+			print("Output:\n", stdout)
+			print("Errors:\n", stderr)
+			print("Compile Output:\n", compile_output)
+			$JudgeStatus.text = "Submission Accepted!"
+			checkAnswer(stdout)
+			
+		elif id == 1 or id == 2:
+			# In queue or Processing
+			await get_tree().create_timer(1.0).timeout
+			poll_submission_result(last_token)
+		else:
+			# Some error happened
+			$JudgeStatus.text = "Error: " + description
 	else:
-		print("Error with http request")
-		$JudgeStatus.text = "Error Submitting Code. Check internet connection and try again!"
-		checkAnswer("Hello Chert!\n")
+		# Initial submission response
+		last_token = response["token"]
+		poll_submission_result(last_token)
+
+		
+func poll_submission_result(token):
+	var url = "https://judge0-ce.p.rapidapi.com/submissions/%s?base64_encoded=false" % token
+	var headers = [
+		"x-rapidapi-host: judge0-ce.p.rapidapi.com",
+		"x-rapidapi-key: %s" % secret_key
+	]
+	var err = http.request(url, headers, HTTPClient.METHOD_GET)
+	if err != OK:
+		print("Error requesting result: ", err)
 
 func _on_continue_pressed() -> void:
 	if isCorrect == true:

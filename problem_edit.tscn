@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=3 uid="uid://dke8gl5nen8n3"]
+[gd_scene load_steps=3 format=3 uid="uid://dke8gl5nen8n3"]
 
 [ext_resource type="Script" uid="uid://bn7sjb1u2406g" path="res://problem_edit.gd" id="1_2w3c6"]
+[ext_resource type="PackedScene" uid="uid://dt7k05k3g6fb6" path="res://chat_bot.tscn" id="2_tglug"]
 
 [node name="ProblemEdit" type="CanvasLayer"]
 script = ExtResource("1_2w3c6")
@@ -17,7 +18,7 @@ metadata/_edit_use_anchors_ = true
 [node name="CodeEdit" type="CodeEdit" parent="."]
 anchors_preset = -1
 anchor_left = 0.19184
-anchor_right = 0.797743
+anchor_right = 0.742188
 anchor_bottom = 0.875
 grow_horizontal = 2
 grow_vertical = 2
@@ -27,15 +28,6 @@ scroll_smooth = true
 caret_blink = true
 indent_automatic = true
 auto_brace_completion_enabled = true
-metadata/_edit_use_anchors_ = true
-
-[node name="ChatbotText" type="RichTextLabel" parent="."]
-anchors_preset = -1
-anchor_left = 0.798611
-anchor_right = 1.0
-anchor_bottom = 0.756173
-grow_horizontal = 0
-text = "Chatbot Placeholder"
 metadata/_edit_use_anchors_ = true
 
 [node name="Save" type="Button" parent="."]
@@ -49,28 +41,28 @@ metadata/_edit_use_anchors_ = true
 
 [node name="Load" type="Button" parent="."]
 anchors_preset = -1
-anchor_left = 0.360243
-anchor_top = 0.905864
-anchor_right = 0.444444
-anchor_bottom = 0.967593
+anchor_left = 0.157118
+anchor_top = 0.907407
+anchor_right = 0.241319
+anchor_bottom = 0.969136
 text = "Load"
 metadata/_edit_use_anchors_ = true
 
 [node name="Judge" type="Button" parent="."]
 anchors_preset = -1
-anchor_left = 0.669271
-anchor_top = 0.901235
-anchor_right = 0.753472
-anchor_bottom = 0.962963
+anchor_left = 0.279514
+anchor_top = 0.910494
+anchor_right = 0.363715
+anchor_bottom = 0.972222
 text = "Judge"
 metadata/_edit_use_anchors_ = true
 
 [node name="Continue" type="Button" parent="."]
 anchors_preset = -1
-anchor_left = 0.852431
-anchor_top = 0.898148
-anchor_right = 0.936632
-anchor_bottom = 0.959876
+anchor_left = 0.849826
+anchor_top = 0.908951
+anchor_right = 0.934027
+anchor_bottom = 0.970679
 text = "Continue"
 metadata/_edit_use_anchors_ = true
 
@@ -78,10 +70,10 @@ metadata/_edit_use_anchors_ = true
 
 [node name="JudgeStatus" type="Label" parent="."]
 anchors_preset = -1
-anchor_left = 0.823785
-anchor_top = 0.756173
-anchor_right = 0.960938
-anchor_bottom = 0.868827
+anchor_left = 0.690104
+anchor_top = 0.876543
+anchor_right = 0.827257
+anchor_bottom = 0.989197
 text = "Submit Code To Be Evaluated"
 horizontal_alignment = 1
 vertical_alignment = 1
@@ -97,10 +89,17 @@ metadata/_edit_use_anchors_ = true
 
 [node name="Instructions" type="RichTextLabel" parent="InstructionBG"]
 modulate = Color(0, 0, 0, 1)
-offset_right = 219.0
-offset_bottom = 564.0
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 0.99823
 text = "Problem Instructions:
-Print \"Hello World!\""
+Placeholder"
+metadata/_edit_use_anchors_ = true
+
+[node name="ChatBot" parent="." instance=ExtResource("2_tglug")]
+anchor_left = 0.743056
+anchor_right = 1.00087
 
 [connection signal="pressed" from="Save" to="." method="_on_save_pressed"]
 [connection signal="pressed" from="Load" to="." method="_on_load_pressed"]

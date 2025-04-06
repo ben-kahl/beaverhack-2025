@@ -1,0 +1,63 @@
+[gd_scene load_steps=2 format=3 uid="uid://dt7k05k3g6fb6"]
+
+[ext_resource type="Script" uid="uid://bgob2k2d1yg2d" path="res://chat_bot.gd" id="1_wg28b"]
+
+[node name="ChatBot" type="Control"]
+layout_mode = 3
+anchor_right = 0.322049
+anchor_bottom = 0.884259
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_wg28b")
+metadata/_edit_use_anchors_ = true
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.564962, 0.564962, 0.564962, 1)
+
+[node name="ChatOutput" type="RichTextLabel" parent="."]
+modulate = Color(0, 0, 0, 1)
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 0.768199
+text = "Hi! I'm your chatbot friend here to help you with any questions you might have. Enter a question then press the \"Chat\" button to submit it!"
+metadata/_edit_use_anchors_ = true
+
+[node name="Chat" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.800539
+anchor_top = 0.919721
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 0
+grow_vertical = 0
+text = "Chat"
+metadata/_edit_use_anchors_ = true
+
+[node name="ChatInput" type="TextEdit" parent="."]
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -42.0
+offset_right = -71.0
+grow_horizontal = 2
+grow_vertical = 0
+placeholder_text = "Enter text here"
+
+[node name="InitRequest" type="HTTPRequest" parent="."]
+
+[node name="ChatRequest" type="HTTPRequest" parent="."]
+
+[connection signal="pressed" from="Chat" to="." method="_on_chat_pressed"]
+[connection signal="request_completed" from="InitRequest" to="." method="_on_http_request_request_completed"]
+[connection signal="request_completed" from="InitRequest" to="." method="_on_init_request_request_completed"]
+[connection signal="request_completed" from="ChatRequest" to="." method="_on_chat_request_request_completed"]
