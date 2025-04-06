@@ -1,6 +1,9 @@
-[gd_scene format=3 uid="uid://c6x53256lnurr"]
+[gd_scene load_steps=2 format=3 uid="uid://c6x53256lnurr"]
+
+[ext_resource type="Script" uid="uid://di5qe8f7gqfy4" path="res://main_menu.gd" id="1_06t4h"]
 
 [node name="MainMenu" type="CanvasLayer"]
+script = ExtResource("1_06t4h")
 
 [node name="ColorRect" type="ColorRect" parent="."]
 anchors_preset = 15
@@ -23,3 +26,14 @@ grow_vertical = 2
 text = "Super Awesome Game
 "
 metadata/_edit_use_anchors_ = true
+
+[node name="Start" type="Button" parent="."]
+anchors_preset = -1
+anchor_top = 0.463735
+anchor_right = 0.0928819
+anchor_bottom = 0.536265
+grow_vertical = 2
+text = "Start"
+metadata/_edit_use_anchors_ = true
+
+[connection signal="pressed" from="Start" to="." method="_on_start_button_pressed"]

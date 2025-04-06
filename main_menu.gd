@@ -1,4 +1,4 @@
 extends CanvasLayer
 
 func _on_start_button_pressed() -> void:
-	get_tree().change_scene_to_file("res://problem_edit.tscn") # Replace with function body.
+	get_tree().change_scene_to_file("res://text_displayer.tscn")
