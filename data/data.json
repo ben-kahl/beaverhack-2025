@@ -1,7 +1,12 @@
 {
-	"intro": "intro text",
+	"intro": "Welcome to Chert Corp! You’ve just been hired on as a new junior dev and you’re excited to start your new job!... Unfortunately, you actually have no clue what you’re doing and piggy backed off of all of your teammates throughout college. Luckily for you, you happened to accidentally free a mischievous, ancient genie trapped inside a dusty, cursed USB stick you found at a garage sale labeled \"senior_dev_finalFINALv7.zip\".
+Now bound to you, the Debug Djinn (who insists he's not AI, but rather a \"Code Spirit from the Fifth Layer of Stack Overflow\") must help you survive your new job as a Python developer, despite your complete lack of qualifications.",
 	"pre_problem_1": "prep1 text",
-	"post_problem_1": "post1 text",
+	"post_problem_1": "\"Ahhh… the sacred words echo once more across the silicon sands: ‘Hello, world!’ A rite as old as time… or at least as old as Python 1.0.\"
+\"You have summoned the print incantation successfully, fledgling developer. The console responded, and the void did not scream. Well done!\"
+\"But do not get cocky. This was but a whisper of true power. Ahead lie wild loops, cursed errors, and a most diabolical foe: indentation.\"
+\"Still, take a moment to bask in the glow of your first output. Chert is pleased... for now. Shall we see how long you can keep this charade alive?\"
+\"Onward, apprentice. The next trial awaits.\"",
 	"pre_problem_2": "pre2 text",
 	"post_problem_2": "post2 text",
 	"pre_problem_3": "pre 3 text",
