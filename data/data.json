@@ -1,14 +1,14 @@
 {
-	"intro": "Placeholder text",
-	"pre_problem_1": "Placeholder text",
-	"post_problem_1": "Placeholder text",
-	"pre_problem_2": "Placeholder text",
-	"post_problem_2": "Placeholder text",
-	"pre_problem_3": "Placeholder text",
-	"post_problem_3": "Placeholder text",
-	"pre_problem_4": "Placeholder text",
-	"post_problem_4": "Placeholder text",
-	"pre_problem_5": "Placeholder text",
-	"post_problem_5": "Placeholder text",
-	"conclusion": "Placeholder text"
+	"intro": "intro text",
+	"pre_problem_1": "prep1 text",
+	"post_problem_1": "post1 text",
+	"pre_problem_2": "pre2 text",
+	"post_problem_2": "post2 text",
+	"pre_problem_3": "pre 3 text",
+	"post_problem_3": "post 3 text",
+	"pre_problem_4": "pre 4 text",
+	"post_problem_4": "post 4 text",
+	"pre_problem_5": "pre 5 text",
+	"post_problem_5": "post 5 text",
+	"conclusion": "Conclusion Text"
 }

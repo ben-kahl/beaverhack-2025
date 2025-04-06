@@ -95,6 +95,7 @@ func _on_continue_pressed() -> void:
 		isAccepted = null
 		isCorrect = false
 		get_tree().change_scene_to_file("res://text_displayer.tscn")
+		
 	else:
 		$JudgeStatus.text = "Challenge must be completed to continue!"
 
