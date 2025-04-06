@@ -4,11 +4,11 @@
 	"post_problem_1": "post1 text",
 	"pre_problem_2": "Chert passed you his next task: label if an email is urgent or not by printing a message depending on the email status to the terminal. How do we check what the status of the email is and print out the right message? If statements are the answer. Your Debug Djinn has an explanation for you:\n\nWhat Is an If Statement?\nImagine you're telling your computer:\n\"Hey, if this happens, do this. Otherwise, maybe do something else.\"\nIt’s just like how we make decisions in real life.\nThe Basics:\nIf condition:\nDo_this\nelif another_condition:\nDo_other_thing\nelse:\ndo_this_if_nothing_matched\nExample:\nHungry = True\nif Hungry:\nprint(“Time to eat!”)\nelse:\nprint(“Not time to eat.”)",
 	"post_problem_2": "post2 text",
-	"pre_problem_3": "pre 3 text",
+	"pre_problem_3": "For loops in Python let you repeat actions a certain number of times. Imagine you have a list of things—like fruits—and you want to say each one out loud. A for loop helps you do that! Example: for fruit in ['apple', 'banana', 'cherry']: print(fruit). This goes through the list one item at a time and prints each fruit. The loop stops when it reaches the end of the list. It's like telling the computer: 'For each thing in this group, do this action.'",
 	"post_problem_3": "post 3 text",
-	"pre_problem_4": "pre 4 text",
+	"pre_problem_4": "You can use a for loop and an if statement together to check each item in a list and only do something if it meets a condition. For example: for number in [1, 2, 3, 4, 5]: if number % 2 == 0: print(number). This loop goes through each number and only prints it if it's even. The for loop handles going through the list, and the if statement decides whether or not to take action for each item.",
 	"post_problem_4": "post 4 text",
-	"pre_problem_5": "pre 5 text",
+	"pre_problem_5": "Bubble Sort works by comparing two numbers at a time and swapping them if they are in the wrong order. It keeps doing this over and over, going through the list again and again, until everything is sorted. Think of it like bubbles in water—bigger numbers 'bubble up' to the top (end of the list) each round.",
 	"post_problem_5": "post 5 text",
 	"conclusion": "Conclusion Text"
 }
