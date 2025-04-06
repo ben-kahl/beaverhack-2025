@@ -5,7 +5,7 @@
 [node name="ProblemEdit" type="CanvasLayer"]
 script = ExtResource("1_2w3c6")
 
-[node name="ColorRect" type="ColorRect" parent="."]
+[node name="BackgroundColor" type="ColorRect" parent="."]
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -16,7 +16,8 @@ metadata/_edit_use_anchors_ = true
 
 [node name="CodeEdit" type="CodeEdit" parent="."]
 anchors_preset = -1
-anchor_right = 0.790799
+anchor_left = 0.19184
+anchor_right = 0.797743
 anchor_bottom = 0.875
 grow_horizontal = 2
 grow_vertical = 2
@@ -26,12 +27,13 @@ scroll_smooth = true
 caret_blink = true
 indent_automatic = true
 auto_brace_completion_enabled = true
+metadata/_edit_use_anchors_ = true
 
 [node name="RichTextLabel" type="RichTextLabel" parent="."]
 anchors_preset = -1
 anchor_left = 0.798611
 anchor_right = 1.0
-anchor_bottom = 0.865741
+anchor_bottom = 0.756173
 grow_horizontal = 0
 text = "Chatbot Placeholder"
 metadata/_edit_use_anchors_ = true
@@ -86,6 +88,19 @@ vertical_alignment = 1
 autowrap_mode = 2
 text_overrun_behavior = 4
 metadata/_edit_use_anchors_ = true
+
+[node name="InstructionBG" type="ColorRect" parent="."]
+anchors_preset = -1
+anchor_right = 0.190104
+anchor_bottom = 0.871914
+metadata/_edit_use_anchors_ = true
+
+[node name="Instructions" type="RichTextLabel" parent="InstructionBG"]
+modulate = Color(0, 0, 0, 1)
+offset_right = 219.0
+offset_bottom = 564.0
+text = "Problem Instructions:
+Print \"Hello World!\""
 
 [connection signal="pressed" from="Save" to="." method="_on_save_pressed"]
 [connection signal="pressed" from="Load" to="." method="_on_load_pressed"]
