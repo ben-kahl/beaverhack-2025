@@ -3,6 +3,8 @@ extends Node
 var current_challenge_index := 0
 var current_script_idx := 0
 var completed_challenges := []
+var gemini_key : String = ""
+var judge0_key : String = ""
 
 func get_script_at_current_index():
 	match current_script_idx:

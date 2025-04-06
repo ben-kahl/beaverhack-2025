@@ -5,7 +5,6 @@ extends CanvasLayer
 @onready var isAccepted = null
 @onready var isCorrect = false
 const GameDataLoader = preload("res://game_data_loader.gd")
-var secret_key = ""
 var answer_data = null
 var instruction_data = null
 var last_token: String = ""
@@ -16,16 +15,6 @@ func _ready() -> void:
 	GameState.update_challenge_index()
 	var ins = GameState.get_challenge_at_current_index()+'ins'
 	$InstructionBG/Instructions.text = instruction_data.text_data[ins]
-	loadKey()
-
-func loadKey():
-	var path = "res://keys/judge0"
-	if FileAccess.file_exists(path):
-		var file = FileAccess.open(path, FileAccess.READ)
-		secret_key = file.get_as_text().strip_edges()
-		print("API key loaded")
-	else:
-		print("Error loading API key")
 
 func _on_save_pressed() -> void:
 	source_code = $CodeEdit.text
@@ -48,7 +37,7 @@ func _on_judge_pressed() -> void:
 	var headers = [
 		"Content-Type: application/json",
 		"x-rapidapi-host: judge0-ce.p.rapidapi.com",
-		"x-rapidapi-key: %s" % secret_key
+		"x-rapidapi-key: %s" % GameState.judge0_key
 		]
 	
 	var error = http.request(url, headers, HTTPClient.METHOD_POST, json_string)
@@ -95,7 +84,7 @@ func poll_submission_result(token):
 	var url = "https://judge0-ce.p.rapidapi.com/submissions/%s?base64_encoded=false" % token
 	var headers = [
 		"x-rapidapi-host: judge0-ce.p.rapidapi.com",
-		"x-rapidapi-key: %s" % secret_key
+		"x-rapidapi-key: %s" % GameState.judge0_key
 	]
 	var err = http.request(url, headers, HTTPClient.METHOD_GET)
 	if err != OK:

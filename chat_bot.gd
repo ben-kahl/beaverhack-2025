@@ -1,19 +1,6 @@
 extends Control
 
 @onready var chatHttp = $ChatRequest
-@onready var gemini_api_key : String = ""
-
-func _ready() -> void:
-	load_key()
-
-func load_key() -> void:
-	var path = "res://keys/gemini"
-	if FileAccess.file_exists(path):
-		var file = FileAccess.open(path, FileAccess.READ)
-		gemini_api_key = file.get_as_text().strip_edges()
-		print("API key loaded")
-	else:
-		print("Error loading API key")
 
 func create_chat_request() -> void:
 	var user_code : String = get_parent().get_node("CodeEdit").text
@@ -22,7 +9,7 @@ func create_chat_request() -> void:
 	var prompt : String = "Here is the problem the user is tasked with solving:\n" + \
 	challenge + "Here is the user's current code:\n\n" + user_code + "\n\n" + \
 	"They said: " + chat_input
-	var url = "https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent?key="+gemini_api_key
+	var url = "https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent?key=" + GameState.gemini_key
 	var headers = ['Content-Type: application/json']
 	var json = {
 		"system_instruction": {
