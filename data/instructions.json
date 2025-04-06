@@ -1,3 +1,7 @@
 {
-	"problem_1_ins": "Create a simple program that prints Hello Chert! \nNote: The message must be Hello Chert! exactly.",
+	"problem_1_ins": "Instructions:\nCreate a simple program that prints Hello Chert! \nNote: The message must be Hello Chert! exactly.",
+	"problem_2_ins": "Instructions:\n",
+	"problem_3_ins": "Instructions:\n",
+	"problem_4_ins": "Instructions:\n",
+	"problem_5_ins": "Instructions:\n",
 }

@@ -12,10 +12,10 @@ var last_token: String = ""
 
 func _ready() -> void:
 	answer_data = GameDataLoader.new("res://data/answers.json")
-	answer_data.processAnswers()
 	instruction_data = GameDataLoader.new("res://data/instructions.json")
-	instruction_data.processInstructions()
-	$InstructionBG/Instructions.text = instruction_data.text_data[instruction_data.current_pos]
+	GameState.update_challenge_index()
+	var ins = GameState.get_challenge_at_current_index()+'ins'
+	$InstructionBG/Instructions.text = instruction_data.text_data[ins]
 	loadKey()
 
 func loadKey():
@@ -102,15 +102,16 @@ func poll_submission_result(token):
 		print("Error requesting result: ", err)
 
 func _on_continue_pressed() -> void:
-	if isCorrect == true:
-		get_tree().change_scene_to_file("res://text_displayer.tscn")
+	if isCorrect == true or GameState.completed_challenges.has(GameState.current_challenge_index):
 		isAccepted = null
 		isCorrect = false
+		get_tree().change_scene_to_file("res://text_displayer.tscn")
 	else:
 		$JudgeStatus.text = "Challenge must be completed to continue!"
 
 func checkAnswer(submission) -> void:
-	var problem_ans = answer_data.text_data[answer_data.current_pos]
+	var ans = GameState.get_challenge_at_current_index()+'ans'
+	var problem_ans = answer_data.text_data[ans]
 	print(submission)
 	print(problem_ans)
 	if submission == problem_ans:
@@ -118,4 +119,4 @@ func checkAnswer(submission) -> void:
 		isCorrect = true
 	else:
 		$JudgeStatus.text = "Incorrect Answer! Please Try Again."
-		
+	

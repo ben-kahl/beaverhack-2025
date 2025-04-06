@@ -1,7 +1,6 @@
 class_name GameDataLoader
 
 var text_data
-var current_pos = null
 
 func _init(_filename = "res://data/data.json") -> void:
 	text_data = loadJSONData(_filename)
@@ -20,15 +19,3 @@ func loadJSONData(filename):
 	else:
 		print("JSON parser error: ", json_data.get_error_message(), "in", data_string, "at line", json_data.get_error_line())
 		assert(false, "JSON Parse Error")
-
-func processScript():
-	if current_pos == null:
-		current_pos = 'intro'
-	
-func processAnswers():
-	if current_pos == null:
-		current_pos = 'problem_1_ans'
-		
-func processInstructions():
-	if current_pos == null:
-		current_pos = "problem_1_ins"
