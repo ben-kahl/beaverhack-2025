@@ -2,18 +2,14 @@
 	"intro": "Welcome to Chert Corp! You’ve just been hired on as a new junior dev and you’re excited to start your new job!... Unfortunately, you actually have no clue what you’re doing and piggy backed off of all of your teammates throughout college. Luckily for you, you happened to accidentally free a mischievous, ancient genie trapped inside a dusty, cursed USB stick you found at a garage sale labeled \"senior_dev_finalFINALv7.zip\".
 Now bound to you, the Debug Djinn (who insists he's not AI, but rather a \"Code Spirit from the Fifth Layer of Stack Overflow\") must help you survive your new job as a Python developer, despite your complete lack of qualifications.",
 	"pre_problem_1": "prep1 text",
-	"post_problem_1": "\"Ahhh… the sacred words echo once more across the silicon sands: ‘Hello, world!’ A rite as old as time… or at least as old as Python 1.0.\"
-\"You have summoned the print incantation successfully, fledgling developer. The console responded, and the void did not scream. Well done!\"
-\"But do not get cocky. This was but a whisper of true power. Ahead lie wild loops, cursed errors, and a most diabolical foe: indentation.\"
-\"Still, take a moment to bask in the glow of your first output. Chert is pleased... for now. Shall we see how long you can keep this charade alive?\"
-\"Onward, apprentice. The next trial awaits.\"",
+	"post_problem_1":  "Ahhh… the sacred words echo once more across the silicon sands: \"Hello, world!\"\nA rite as old as time… or at least as old as Python 1.0.\n\nYou have summoned the print incantation successfully, fledgling developer.\nThe console responded, and the void did not scream. Well done!\n\nBut do not get cocky. This was but a whisper of true power.\nAhead lie wild loops, cursed errors, and a most diabolical foe: *indentation*.\n\nStill, take a moment to bask in the glow of your first output.\nChert is pleased... for now.\n\nOnward, apprentice. The next trial awaits.",
 	"pre_problem_2": "pre2 text",
-	"post_problem_2": "post2 text",
+	"post_problem_2": "Aha! The flames of logic flicker brightly in you, apprentice!\nYou’ve peered into the sacred variable and made a judgment call — correctly so.\nWhen the email screamed \"URGENT\", your code rose to the occasion like a phoenix wearing a necktie.\n\nYour if-statement has passed the test... for now.\nBut beware! There are greater beasts ahead: elifs, elses... and the dreaded nested condition.\n\nStill, Chert remains blissfully unaware of your bluff. Well done.",
 	"pre_problem_3": "pre 3 text",
-	"post_problem_3": "post 3 text",
+	"post_problem_3": "Ahhh, the ritual of repetition — you've invoked the for loop spell with elegance.\nFive reminders, just as Chert ordered. Five sacred chants to summon punctuality!\n\nThe loop obeys you now... but loops are like fire. Useful. Dangerous. Sometimes infinite.\n\nTake pride, apprentice — you're one step closer to convincing your boss you're a real developer.\n\nJust... don’t forget to actually attend that standup.",
 	"pre_problem_4": "pre 4 text",
-	"post_problem_4": "post 4 text",
+	"post_problem_4": "You have combed through the scroll of server statuses and shouted warnings into the void.\nThe Debug Djinn approves — not because you are skilled, but because you are lucky.\n\nYou handled the list like a seasoned sysadmin (or at least someone who has read half a tutorial).\n\nEach 'Offline' was met with swift alarm. Beautiful. Efficient. Slightly terrifying.\n\nThe servers may be down, but your journey continues upward!",
 	"pre_problem_5": "pre 5 text",
-	"post_problem_5": "post 5 text",
-	"conclusion": "Conclusion Text"
+	"post_problem_5": "You... sorted the todo list.\nBy the swirling sands of spaghetti code, I didn't think you'd pull it off!\n\nYou've wrangled chaos into order using... *a loop*. And maybe... just maybe... a bubble sort spell whispered to you in haste.\n\nChert thinks you're brilliant. The fool.\n\nBut I, the Debug Djinn, know the truth: you are a delightful liar armed with parentheses and hustle.\n\nCome — let us continue the deception!",
+	"conclusion": "By the blazing LEDs of Mount Stacktrace… you did it.\n\nYou, who once gazed blankly at the terminal, have conquered loops, tamed logic, and sorted chaos itself.\nYou’ve bamboozled Chert, bent Python to your will, and—through sheer determination and questionable competence—survived your first week as a dev.\n\nThe Debug Djinn is... begrudgingly impressed.\n\nBut remember, apprentice: this was only the beginning. Beyond Chert’s cubicle lies a world of legacy code, merge conflicts, and interns who think JavaScript is a database.\n\nAnd yet, if you ever feel lost again… simply summon me.\nFor I am bound to you... until someone unplugs the USB.\n\nNow go forth, junior developer — and may your code always compile on the first try (lol)."
 }
