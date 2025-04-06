@@ -1,6 +1,9 @@
-[gd_scene load_steps=0 format=3 uid="uid://dke8gl5nen8n3"]
+[gd_scene load_steps=2 format=3 uid="uid://dke8gl5nen8n3"]
+
+[ext_resource type="Script" uid="uid://bn7sjb1u2406g" path="res://problem_edit.gd" id="1_2w3c6"]
 
 [node name="ProblemEdit" type="CanvasLayer"]
+script = ExtResource("1_2w3c6")
 
 [node name="ColorRect" type="ColorRect" parent="."]
 anchors_preset = 15
@@ -18,6 +21,11 @@ anchor_bottom = 0.875
 grow_horizontal = 2
 grow_vertical = 2
 placeholder_text = "Enter Code Here"
+emoji_menu_enabled = false
+scroll_smooth = true
+caret_blink = true
+indent_automatic = true
+auto_brace_completion_enabled = true
 
 [node name="RichTextLabel" type="RichTextLabel" parent="."]
 anchors_preset = -1
@@ -54,3 +62,34 @@ anchor_right = 0.753472
 anchor_bottom = 0.962963
 text = "Judge"
 metadata/_edit_use_anchors_ = true
+
+[node name="Continue" type="Button" parent="."]
+anchors_preset = -1
+anchor_left = 0.852431
+anchor_top = 0.898148
+anchor_right = 0.936632
+anchor_bottom = 0.959876
+text = "Continue"
+metadata/_edit_use_anchors_ = true
+
+[node name="HTTPRequest" type="HTTPRequest" parent="."]
+
+[node name="JudgeStatus" type="Label" parent="."]
+anchors_preset = -1
+anchor_left = 0.823785
+anchor_top = 0.756173
+anchor_right = 0.960938
+anchor_bottom = 0.868827
+text = "Submit Code To Be Evaluated"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2
+text_overrun_behavior = 4
+metadata/_edit_use_anchors_ = true
+
+[connection signal="pressed" from="Save" to="." method="_on_save_pressed"]
+[connection signal="pressed" from="Load" to="." method="_on_load_pressed"]
+[connection signal="pressed" from="Judge" to="." method="_on_judge_pressed"]
+[connection signal="pressed" from="Continue" to="." method="_on_judge_pressed"]
+[connection signal="pressed" from="Continue" to="." method="_on_continue_pressed"]
+[connection signal="request_completed" from="HTTPRequest" to="." method="_on_http_request_request_completed"]
