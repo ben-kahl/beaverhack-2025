@@ -1,20 +1,37 @@
 extends Control
 
-@onready var initHttp = $InitRequest
 @onready var chatHttp = $ChatRequest
 @onready var gemini_api_key : String = ""
 
-func _init() -> void:
-	var url = "https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent?key=$"+gemini_api_key
-	var headers = ["Content-Type: application/json"]
+func _ready() -> void:
+	load_key()
+
+func load_key() -> void:
+	var path = "res://keys/gemini"
+	if FileAccess.file_exists(path):
+		var file = FileAccess.open(path, FileAccess.READ)
+		gemini_api_key = file.get_as_text().strip_edges()
+		print("API key loaded")
+	else:
+		print("Error loading API key")
+
+func create_chat_request() -> void:
+	var user_code : String = get_parent().get_node("CodeEdit").text
+	var chat_input : String = $ChatInput.text
+	var challenge : String = get_parent().get_node("InstructionBG/Instructions").text
+	var prompt : String = "Here is the problem the user is tasked with solving:\n" + \
+	challenge + "Here is the user's current code:\n\n" + user_code + "\n\n" + \
+	"They said: " + chat_input
+	var url = "https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent?key="+gemini_api_key
+	var headers = ['Content-Type: application/json']
 	var json = {
-			"system_instruction": {
+		"system_instruction": {
 		  "parts": [
 			{
 			  "text": "You are assisting a recently hired employee who does not know
 	how to program at all. Help them write python code (no other languages) to help complete their 
 	assignments, but only give explanations on topics or guidance on their code. Do not give them
-	the answer to the whole problem."
+	the answer to the whole problem. Also, keep answers fairly brief and only use basic formatting"
 			}
 		  ]
 		},
@@ -22,27 +39,38 @@ func _init() -> void:
 		  {
 			"parts": [
 			  {
-				"text": "Help! I lied on my resume and got hired as a software engineer but I have no idea
-				how to code. Help me learn python!"
+				"text": prompt
 			  }
 			]
 		  }
 		]
-	}
+  	}
 	var json_string = JSON.stringify(json)
-	#var error = initHttp.request(url, headers, HTTPClient.METHOD_POST, json_string)
+	var error = chatHttp.request(url, headers, HTTPClient.METHOD_POST, json_string)
 	
-	#if error != OK:
-	#	print("HTTP Request error: ", error)
+	if error != OK:
+		print("HTTP request error: ", error)
 
 func _on_chat_pressed() -> void:
+	if $ChatInput.text != "":
+		# small measure to avoid wasting api requests...
+		create_chat_request()
 	$ChatInput.text = ""
-	$ChatOutput.text = "Placeholder response"
-	pass # Replace with function body.
-
-func _on_init_request_request_completed(result: int, response_code: int, headers: PackedStringArray, body: PackedByteArray) -> void:
-	pass # Replace with function body.
-
+	$ChatOutput.text = "Waiting for response..."
+	
 
 func _on_chat_request_request_completed(result: int, response_code: int, headers: PackedStringArray, body: PackedByteArray) -> void:
-	pass # Replace with function body.
+	if response_code == 200:
+		var json = JSON.new()
+		var error = json.parse(body.get_string_from_utf8())
+		if error == OK:
+			var data = json.data
+			if data.has("candidates"):
+				var text = data["candidates"][0]["content"]["parts"][0]["text"]
+				$ChatOutput.text = text
+			else:
+				$ChatOutput.text = "Failed to generate a response."
+		else:
+			$ChatOutput.text = "Failed to parse response."
+	else:
+		$ChatOutput.text = "Error: HTTP " + str(response_code)

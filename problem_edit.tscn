@@ -32,28 +32,37 @@ metadata/_edit_use_anchors_ = true
 
 [node name="Save" type="Button" parent="."]
 anchors_preset = -1
-anchor_left = 0.0494792
-anchor_top = 0.905864
-anchor_right = 0.133681
-anchor_bottom = 0.967593
+anchor_left = 0.125
+anchor_top = 0.91358
+anchor_right = 0.209202
+anchor_bottom = 0.975309
 text = "Save"
+metadata/_edit_use_anchors_ = true
+
+[node name="Back" type="Button" parent="."]
+anchors_preset = -1
+anchor_left = 0.0217014
+anchor_top = 0.91358
+anchor_right = 0.105903
+anchor_bottom = 0.975309
+text = "Back"
 metadata/_edit_use_anchors_ = true
 
 [node name="Load" type="Button" parent="."]
 anchors_preset = -1
-anchor_left = 0.157118
-anchor_top = 0.907407
-anchor_right = 0.241319
-anchor_bottom = 0.969136
+anchor_left = 0.248264
+anchor_top = 0.912037
+anchor_right = 0.332465
+anchor_bottom = 0.973766
 text = "Load"
 metadata/_edit_use_anchors_ = true
 
 [node name="Judge" type="Button" parent="."]
 anchors_preset = -1
-anchor_left = 0.279514
-anchor_top = 0.910494
-anchor_right = 0.363715
-anchor_bottom = 0.972222
+anchor_left = 0.388889
+anchor_top = 0.907407
+anchor_right = 0.47309
+anchor_bottom = 0.969135
 text = "Judge"
 metadata/_edit_use_anchors_ = true
 
@@ -102,8 +111,8 @@ anchor_left = 0.743056
 anchor_right = 1.00087
 
 [connection signal="pressed" from="Save" to="." method="_on_save_pressed"]
+[connection signal="pressed" from="Back" to="." method="_on_back_pressed"]
 [connection signal="pressed" from="Load" to="." method="_on_load_pressed"]
 [connection signal="pressed" from="Judge" to="." method="_on_judge_pressed"]
-[connection signal="pressed" from="Continue" to="." method="_on_judge_pressed"]
 [connection signal="pressed" from="Continue" to="." method="_on_continue_pressed"]
 [connection signal="request_completed" from="HTTPRequest" to="." method="_on_http_request_request_completed"]

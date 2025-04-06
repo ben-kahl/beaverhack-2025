@@ -120,3 +120,8 @@ func checkAnswer(submission) -> void:
 	else:
 		$JudgeStatus.text = "Incorrect Answer! Please Try Again."
 	
+
+
+func _on_back_pressed() -> void:
+	GameState.current_script_idx -= 1
+	get_tree().change_scene_to_file("res://text_displayer.tscn")
