@@ -1,7 +1,7 @@
 {
 		"problem_1_ans": "Hello Chert!\n",
-		"problem_2_ans": "null",
-		"problem_3_ans": "null",
-		"problem_4_ans": "null",
-		"problem_5_ans": "null",
+		"problem_2_ans": "Urgent Task! Handle Immediately\n",
+		"problem_3_ans": "Reminder: 10 AM Standup Meeting\nReminder: 10 AM Standup Meeting\nReminder: 10 AM Standup Meeting\nReminder: 10 AM Standup Meeting\nReminder: 10 AM Standup Meeting\n",
+		"problem_4_ans": "Warning: Server Offline!\nWarning: Server Offline!\nWarning: Server Offline!\n",
+		"problem_5_ans": "[1, 2, 3, 4, 5]\n",
 }

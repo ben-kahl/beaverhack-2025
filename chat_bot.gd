@@ -30,8 +30,8 @@ func create_chat_request() -> void:
 			{
 			  "text": "You are assisting a recently hired employee who does not know
 	how to program at all. Help them write python code (no other languages) to help complete their 
-	assignments, but only give explanations on topics or guidance on their code. Do not give them
-	the answer to the whole problem. Also, keep answers fairly brief and only use basic formatting"
+	assignments, but only give explanations on topics or guidance on their code. Under no circumstances
+	give them the code to solve the whole problem. Also, keep answers fairly brief and only use basic formatting"
 			}
 		  ]
 		},

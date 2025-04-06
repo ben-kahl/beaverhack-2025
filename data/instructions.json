@@ -1,7 +1,7 @@
 {
 	"problem_1_ins": "Instructions:\nCreate a simple program that prints Hello Chert! \nNote: The message must be Hello Chert! exactly.",
-	"problem_2_ins": "Instructions:\n",
-	"problem_3_ins": "Instructions:\n",
-	"problem_4_ins": "Instructions:\n",
-	"problem_5_ins": "Instructions:\n",
+	"problem_2_ins": "Instructions:\nChert needs to know if a task is urgent or normal.\nCreate a program that prints \"Urgent Task! Handle Immediately\" if an email is urgent or print \"Normal Task. Don't sweat it\" if it's normal\nInclude\nemail = \"URGENT\"\nat the top of your program.",
+	"problem_3_ins": "Instructions:\nChert wants you to write a program to print out a reminder for the daily 10 AM standup meeting. Use a for loop to print the message\n\"Reminder: 10 AM Standup Meeting\"\n5 times",
+	"problem_4_ins": "Instructions:\nChert passed you a list of server statuses.\nHe needs you to write a program that goes through the list and prints a warning if that server is offline.\nInclude this line of code at the top of your program:\nstatuses = [\"Online\", \"Offline\", \"Offline\", \"Online\", \"Online\", \"Offline\"]\nIf the server is offline, print the message:\n\"Warning: Server Offline!\"",
+	"problem_5_ins": "Instructions:\nChert gave you a todo list. The only issue is, everything is completely out of order! To prove what you've learned and that you're a real programmer, use a for loop to put it back in order (least to greatest). Include this line of code at the top of your program:\ntodo = [3, 5, 2, 1, 4]\nHint:\nAsk your AI sidekick about bubblesort!",
 }
