@@ -2,7 +2,7 @@ extends Node
 
 var current_challenge_index := 0
 var current_script_idx := 0
-var completed_challenges := [1, 2, 3, 4, 5]
+var completed_challenges := []
 var gemini_key : String = ""
 var judge0_key : String = ""
 

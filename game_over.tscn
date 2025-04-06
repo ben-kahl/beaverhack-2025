@@ -1,3 +1,41 @@
-[gd_scene format=3 uid="uid://cicf1mx5nyv5t"]
+[gd_scene load_steps=2 format=3 uid="uid://cicf1mx5nyv5t"]
+
+[ext_resource type="Script" uid="uid://31unbd2hvva1" path="res://game_over.gd" id="1_y26ei"]
 
 [node name="GameOver" type="CanvasLayer"]
+script = ExtResource("1_y26ei")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
+metadata/_edit_use_anchors_ = true
+
+[node name="Label" type="Label" parent="."]
+anchors_preset = -1
+anchor_left = 0.359375
+anchor_top = 0.404321
+anchor_right = 0.576389
+anchor_bottom = 0.526235
+offset_left = 25.0
+offset_right = -25.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Thank you for playing our game!"
+metadata/_edit_use_anchors_ = true
+
+[node name="Button" type="Button" parent="."]
+anchors_preset = -1
+anchor_left = 0.417535
+anchor_top = 0.862654
+anchor_right = 0.550347
+anchor_bottom = 0.996914
+grow_horizontal = 2
+grow_vertical = 0
+text = "Back to Start"
+metadata/_edit_use_anchors_ = true
+
+[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]
