@@ -28,3 +28,7 @@ func processScript():
 func processAnswers():
 	if current_pos == null:
 		current_pos = 'problem_1_ans'
+		
+func processInstructions():
+	if current_pos == null:
+		current_pos = "problem_1_ins"
