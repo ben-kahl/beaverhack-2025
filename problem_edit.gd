@@ -3,6 +3,13 @@ extends CanvasLayer
 @onready var http = $HTTPRequest
 @onready var source_code = ""
 @onready var isAccepted = null
+@onready var isCorrect = false
+const GameDataLoader = preload("res://game_data_loader.gd")
+var game_data_loader = null
+
+func _ready() -> void:
+	game_data_loader = GameDataLoader.new("res://data/answers.json")
+	game_data_loader.processAnswers()
 
 func _on_save_pressed() -> void:
 	source_code = $CodeEdit.text
@@ -13,7 +20,6 @@ func _on_save_pressed() -> void:
 func _on_load_pressed() -> void:
 	var file = FileAccess.open("user://user_code.py", FileAccess.READ)
 	$CodeEdit.text = file.get_as_text()
-	
 
 func _on_judge_pressed() -> void:
 	$JudgeStatus.text = "Judging..."
@@ -42,16 +48,30 @@ func _on_http_request_request_completed(result: int, response_code: int, headers
 			if description == "Accepted":
 				isAccepted = true
 				$JudgeStatus.text = "Code Accepted!"
+				var stdout = response["stdout"]
+				checkAnswer(stdout)
 			else:
 				isAccepted = false
 				$JudgeStatus.text = "Code not Accepted. Try Again!"
 	else:
 		print("Error with http request")
 		$JudgeStatus.text = "Error Submitting Code. Check internet connection and try again!"
-
+		checkAnswer("null")
 
 func _on_continue_pressed() -> void:
 	if isAccepted == true:
 		get_tree().change_scene_to_file("res://text_displayer.tscn")
+		isAccepted = null
+		isCorrect = false
 	else:
 		$JudgeStatus.text = "Challenge must be completed to continue!"
+
+func checkAnswer(submission) -> void:
+	var problem_ans = game_data_loader.text_data[game_data_loader.current_pos]
+	print(problem_ans)
+	if submission == problem_ans:
+		$JudgeStatus.text = "Correct Answer! Please Continue Your Adventure!"
+		isCorrect = true
+	else:
+		$JudgeStatus.text = "Incorrect Answer! Please Try Again."
+		

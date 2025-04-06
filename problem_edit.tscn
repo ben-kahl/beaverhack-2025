@@ -29,7 +29,7 @@ indent_automatic = true
 auto_brace_completion_enabled = true
 metadata/_edit_use_anchors_ = true
 
-[node name="RichTextLabel" type="RichTextLabel" parent="."]
+[node name="ChatbotText" type="RichTextLabel" parent="."]
 anchors_preset = -1
 anchor_left = 0.798611
 anchor_right = 1.0
